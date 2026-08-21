@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Final Confidential File 🎂</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1014;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* OPENING ACCESS SCREEN */
+
+        #access-screen {
+            min-height: 100vh;
+            background: #0d1014;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .access-text {
+            color: #e10600;
+            font-size: clamp(30px, 7vw, 75px);
+            font-weight: 900;
+            letter-spacing: 4px;
+            animation: flicker 1s infinite;
+        }
+
+        .loading {
+            margin-top: 30px;
+            font-size: 20px;
+            letter-spacing: 4px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes flicker {
+
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes blink {
+
+            50% {
+                opacity: 0;
+            }
+
+        }
+
+
+        /* FINAL BIRTHDAY SCREEN */
+
+        #birthday-screen {
+            display: none;
+            min-height: 100vh;
+            background: #fff5f7;
+            color: #222;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            padding: 50px 20px;
+        }
+
+        .birthday-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* MAIN TITLE */
+
+        .happy {
+            font-size: clamp(35px, 7vw, 85px);
+            font-weight: 900;
+            color: #e10600;
+            line-height: 1.1;
+            animation: popIn 0.8s ease-out;
+        }
+
+        .age {
+            font-size: clamp(70px, 14vw, 170px);
+            font-weight: 900;
+            margin: 10px 0;
+            animation: bounceIn 1s ease-out;
+        }
+
+        .machhli {
+            font-size: clamp(35px, 7vw, 80px);
+            font-weight: 900;
+            color: #e10600;
+            margin-bottom: 30px;
+            animation: popIn 1.2s ease-out;
+        }
+
+
+        /* PHOTO */
+
+        .photo-frame {
+            width: 340px;
+            max-width: 85%;
+            height: 420px;
+            margin: 30px auto;
+            background: white;
+            padding: 12px;
+            border: 8px solid #222;
+            box-shadow: 12px 12px 0 #e10600;
+            transform: rotate(-3deg);
+            animation: photoPop 1.2s ease-out;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+
+        /* FINAL MESSAGE */
+
+        .message-box {
+            background: #222;
+            color: white;
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 30px;
+            font-size: 20px;
+            line-height: 1.8;
+            border-left: 10px solid #e10600;
+            animation: riseUp 1.5s ease-out;
+        }
+
+
+        /* DECORATIVE EMOJIS */
+
+        .decoration {
+            position: absolute;
+            z-index: 1;
+            font-size: 45px;
+            animation: floatAround 4s infinite ease-in-out;
+        }
+
+        .d1 {
+            top: 8%;
+            left: 5%;
+        }
+
+        .d2 {
+            top: 15%;
+            right: 6%;
+            animation-delay: 1s;
+        }
+
+        .d3 {
+            bottom: 10%;
+            left: 8%;
+            animation-delay: 2s;
+        }
+
+        .d4 {
+            bottom: 15%;
+            right: 8%;
+            animation-delay: 0.5s;
+        }
+
+        .d5 {
+            top: 45%;
+            left: 3%;
+            animation-delay: 1.5s;
+        }
+
+        .d6 {
+            top: 50%;
+            right: 3%;
+            animation-delay: 2.5s;
+        }
+
+
+        /* CONFETTI */
+
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 18px;
+            top: -30px;
+            animation: fall linear infinite;
+        }
+
+        .c1 { left: 5%; animation-duration: 4s; }
+        .c2 { left: 12%; animation-duration: 5s; animation-delay: 1s; }
+        .c3 { left: 20%; animation-duration: 4.5s; animation-delay: 2s; }
+        .c4 { left: 30%; animation-duration: 5.5s; animation-delay: 0.5s; }
+        .c5 { left: 40%; animation-duration: 4.2s; animation-delay: 1.5s; }
+        .c6 { left: 50%; animation-duration: 5.2s; animation-delay: 2.5s; }
+        .c7 { left: 60%; animation-duration: 4.7s; animation-delay: 0.8s; }
+        .c8 { left: 70%; animation-duration: 5.7s; animation-delay: 2s; }
+        .c9 { left: 80%; animation-duration: 4.3s; animation-delay: 1.2s; }
+        .c10 { left: 90%; animation-duration: 5.1s; animation-delay: 2.7s; }
+
+
+        /* ANIMATIONS */
+
+        @keyframes popIn {
+
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes bounceIn {
+
+            0% {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+
+            60% {
+                transform: translateY(30px);
+            }
+
+            80% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes photoPop {
+
+            0% {
+                transform: scale(0) rotate(15deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1) rotate(-3deg);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes riseUp {
+
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes floatAround {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+        }
+
+        @keyframes fall {
+
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(120vh) rotate(720deg);
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            #birthday-screen {
+                padding: 40px 15px;
+            }
+
+            .photo-frame {
+                height: 380px;
+            }
+
+            .message-box {
+                font-size: 17px;
+                padding: 25px;
+            }
+
+            .decoration {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ACCESSING SCREEN -->
+
+    <div id="access-screen">
+
+        <div class="access-text">
+            ACCESSING FINAL FILE...
+        </div>
+
+        <div class="loading">
+            SECURITY OVERRIDE IN PROGRESS...
+        </div>
+
+    </div>
+
+
+    <!-- FINAL BIRTHDAY SURPRISE -->
+
+    <div id="birthday-screen">
+
+
+        <!-- CONFETTI -->
+
+        <div class="confetti c1"></div>
+        <div class="confetti c2"></div>
+        <div class="confetti c3"></div>
+        <div class="confetti c4"></div>
+        <div class="confetti c5"></div>
+        <div class="confetti c6"></div>
+        <div class="confetti c7"></div>
+        <div class="confetti c8"></div>
+        <div class="confetti c9"></div>
+        <div class="confetti c10"></div>
+
+
+        <!-- DECORATION -->
+
+        <div class="decoration d1">🌸</div>
+        <div class="decoration d2">🎉</div>
+        <div class="decoration d3">🎂</div>
+        <div class="decoration d4">🎈</div>
+        <div class="decoration d5">✨</div>
+        <div class="decoration d6">🐟</div>
+
+
+        <div class="birthday-content">
+
+            <div class="happy">
+                HAPPY BIRTHDAY
+            </div>
+
+            <div class="age">
+                21
+            </div>
+
+            <div class="machhli">
+                MACHHLI 🐟
+            </div>
+
+
+            <!-- FINAL PHOTO -->
+
+            <div class="photo-frame">
+
+                <img src="finalpop.jpeg" alt="Birthday Boy">
+
+            </div>
+
+
+            <!-- FINAL MESSAGE -->
+
+            <div class="message-box">
+
+                🎉 CONGRATULATIONS 🎉
+
+                <br><br>
+
+                You have successfully survived 21 years
+                of being absolutely and undeniably yourself.
+
+                <br><br>
+
+                May you continue irritating everyone with your
+                lame jokes, making questionable decisions and
+                somehow surviving every investigation.
+
+                <br><br>
+
+                But genuinely, thank you for being you.
+
+                <br><br>
+
+                HAPPY 21ST BIRTHDAY, MACHHLI! 🐟🎂
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SWITCH FROM ACCESS SCREEN TO BIRTHDAY SCREEN -->
+
+    <script>
+
+        setTimeout(function() {
+
+            document.getElementById("access-screen").style.display = "none";
+
+            document.getElementById("birthday-screen").style.display = "block";
+
+        }, 2500);
+
+    </script>
+
+
+</body>
+
+</html>
