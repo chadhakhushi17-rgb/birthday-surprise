@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>A Very Important Investigation 👀</title>
+  <title>CASE FILE: MACHHLI</title>
 
   <style>
     * {
@@ -15,65 +15,170 @@
       margin: 0;
       min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: #fff4e6;
+      background: #0b0b0b;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .top-warning {
+      background: #d00000;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      animation: blink 1.5s infinite;
+    }
+
+    .case-page {
+      min-height: calc(100vh - 45px);
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      overflow: hidden;
+      padding: 40px 20px;
     }
 
-    .container {
+    .case-file {
+      width: min(100%, 950px);
+      background: #e8e0cf;
+      color: #111;
+      border: 8px solid #c9b99c;
+      box-shadow: 0 0 0 4px #111, 15px 15px 0 rgba(255,255,255,0.08);
       padding: 30px;
-      max-width: 700px;
-      animation: appear 1.2s ease;
+      transform: rotate(-0.5deg);
+      position: relative;
+    }
+
+    .classified {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      border: 4px solid #c00000;
+      color: #c00000;
+      padding: 8px 14px;
+      font-size: 18px;
+      font-weight: bold;
+      transform: rotate(8deg);
+      letter-spacing: 2px;
+    }
+
+    .case-number {
+      font-family: monospace;
+      font-size: 14px;
+      margin-bottom: 8px;
     }
 
     h1 {
-      font-size: clamp(42px, 8vw, 80px);
-      margin-bottom: 15px;
+      font-size: clamp(45px, 8vw, 90px);
+      margin: 10px 0;
+      line-height: 0.9;
+      letter-spacing: 2px;
     }
 
-    .warning {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 30px;
+    .subject {
+      color: #c00000;
     }
 
-    .funny-photo {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 8px solid black;
-      margin-bottom: 25px;
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      margin-top: 30px;
+      align-items: center;
+    }
+
+    .photo-box {
+      background: #111;
+      padding: 12px 12px 40px;
       transform: rotate(-3deg);
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
+      position: relative;
     }
 
-    button {
-      background: black;
+    .photo-box img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.05);
+    }
+
+    .photo-label {
+      color: white;
+      text-align: center;
+      margin-top: 12px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+
+    .info {
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .info strong {
+      color: #c00000;
+    }
+
+    .charge-box {
+      margin-top: 20px;
+      background: #111;
+      color: white;
+      padding: 18px;
+      border-left: 8px solid #c00000;
+    }
+
+    .begin-btn {
+      margin-top: 30px;
+      background: #c00000;
       color: white;
       border: none;
       padding: 18px 30px;
-      font-size: 18px;
-      border-radius: 50px;
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 1px;
       cursor: pointer;
-      transition: 0.3s;
+      box-shadow: 5px 5px 0 #111;
+      transition: 0.25s;
     }
 
-    button:hover {
-      transform: scale(1.08);
+    .begin-btn:hover {
+      transform: translateY(-4px) scale(1.03);
     }
 
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    .stamp {
+      display: inline-block;
+      margin-top: 25px;
+      border: 3px solid #111;
+      padding: 8px 12px;
+      font-weight: bold;
+      transform: rotate(-2deg);
+    }
+
+    @keyframes blink {
+      50% {
+        background: #9d0000;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .evidence-grid {
+        grid-template-columns: 1fr;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .photo-box {
+        max-width: 280px;
+        margin: auto;
+      }
+
+      .classified {
+        position: static;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      .case-file {
+        padding: 22px;
       }
     }
   </style>
@@ -81,26 +186,89 @@
 
 <body>
 
-  <div class="container">
+  <div class="top-warning">
+    ⚠️ BIRTHDAY INVESTIGATION IN PROGRESS ⚠️
+  </div>
 
-    <h1>🚨 BREAKING NEWS 🚨</h1>
+  <section class="case-page">
 
-    <p class="warning">
-      A highly suspicious individual has officially completed
-      another orbit around the sun.
+    <div class="case-file">
+
+      <div class="classified">
+        CLASSIFIED
+      </div>
+
+      <div class="case-number">
+        CASE FILE #M-21-2026
+      </div>
+
+      <h1>
+        SUBJECT: <span class="subject">MACHHLI</span>
+      </h1>
+
+      <div class="evidence-grid">
+
+        <div class="photo-box">
+          <img src="machhli.png" alt="Subject Machhli">
+
+          <div class="photo-label">
+            EVIDENCE PHOTO #001
+          </div>
+        </div>
+
+        <div class="info">
+
+          <p>
+            <strong>NAME:</strong> Machhli 🐟
+            <br>
+
+            <strong>AGE:</strong> 21
+            <br>
+
+            <strong>STATUS:</strong> Somehow still functioning
+            <br>
+
+            <strong>THREAT LEVEL:</strong> Questionably high
+          </p>
+
+          <div class="charge-box">
+            <strong>PRIMARY CHARGE:</strong>
+            Successfully surviving 21 years while continuing
+            to cause unnecessary chaos.
+          </div>
+
+          <button class="begin-btn"
+            onclick="document.getElementById('investigation').scrollIntoView({behavior: 'smooth'})">
+
+            BEGIN INVESTIGATION →
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="stamp">
+        SUBJECT STILL UNDER INVESTIGATION
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="investigation" style="min-height: 100vh; background:#111; color:white; padding:80px 20px; text-align:center;">
+
+    <h2 style="font-size:clamp(40px,7vw,80px); margin-bottom:20px;">
+      ACCESS GRANTED.
+    </h2>
+
+    <p style="font-size:20px; max-width:650px; margin:auto; line-height:1.7;">
+      Congratulations. You have officially entered the
+      confidential birthday investigation of Machhli.
       <br><br>
-      Unfortunately, you are about to discover evidence.
+      More suspicious evidence is being prepared...
     </p>
 
-    <!-- We will add his funny photo here later -->
-
-    <br>
-
-    <button onclick="alert('Congratulations. You clicked it. Unfortunately, there is no going back now. 👀')">
-      ENTER AT YOUR OWN RISK
-    </button>
-
-  </div>
+  </section>
 
 </body>
 </html>
